@@ -31,22 +31,21 @@ public class PlaceToPutTheChairI {
         }
       }
     }
-    for(int i = 0; i < M; ++i){
-      for(int j = 0; j < N; ++j){
-        if(gym[i][j] == EQ){
-          if(!addCost(EQList, gym, cost, new Node(j, i))){
-            return Arrays.asList(-1, -1);
-          }
-        }
+    for(Node n: EQList){
+      if(!addCost(EQList, gym, cost, new Node(n.x, n.y))){
+        return Arrays.asList(-1, -1);
       }
     }
-    Node min = new Node(0, 0);
+    // new GraphTestCasesMain().print2DMatrix(cost);
+    Node min = new Node(-1, -1);
+    boolean first = true;
     for(int i = 0; i < M; ++i){
       for(int j = 0; j < N; ++j){
         if(gym[i][j] == 'C'){
-          if(cost[min.y][min.x] > cost[i][j]){
+          if(first || cost[min.y][min.x] > cost[i][j]){
             min.y = i;
             min.x = j;
+            first = false;
           }
         }
       }
@@ -58,25 +57,25 @@ public class PlaceToPutTheChairI {
     boolean[][] visited = new boolean[gym.length][gym[0].length];
     Queue<Node> queue = new LinkedList<>();
     queue.offer(n);
+    visited[n.y][n.x] = true;
     int sum = 1;
     while(!queue.isEmpty()){
       int size = queue.size();
-      while(size > 0){
-        size--;
+      for(int l = 0; l < size; ++l) {
         Node cur = queue.poll();
         cur.getNe();
-        for(Node ne: cur.neighbors){
-          if(isLegal(ne, visited) && gym[ne.y][ne.x] != OB){
+        for (Node ne : cur.neighbors) {
+          if (isLegal(ne, visited) && gym[ne.y][ne.x] != OB) {
             visited[ne.y][ne.x] = true;
             cost[ne.y][ne.x] += sum;
-            if(gym[ne.y][ne.x] == 'C')
-              queue.offer(ne);
+            queue.offer(ne);
           }
         }
       }
       sum++;
     }
     for(Node eq : EQList){
+      // new GraphTestCasesMain().print2DMatrix(visited);
       if(!visited[eq.y][eq.x]) return false;
     }
     return true;

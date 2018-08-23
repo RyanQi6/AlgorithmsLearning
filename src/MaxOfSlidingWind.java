@@ -15,18 +15,17 @@ public class MaxOfSlidingWind {
       return res;
     }
     Deque<Pairs> deq = new ArrayDeque<>();
-    deq.offerFirst(new Pairs(array[0], 0));
-    for(int i = 1; i < array.length; ++i){
-      if(array[i] > deq.getFirst().value){
-        while(deq.getFirst().index < i){
-          deq.pollLast();
-        }
-        deq.offerFirst(new Pairs(array[i], i));
+    for(int i = 0; i < array.length; ++i){
+      while(deq.size() > 0 && array[i] >= deq.peekLast().value){
+        deq.pollLast();
       }
-      if(i >= k && i - k == deq.getFirst().index){
+      if(deq.size() > 0 && deq.peekFirst().index <= i - k){
         deq.pollFirst();
       }
-      res.add(deq.getFirst().value);
+      deq.offerLast(new Pairs(array[i], i));
+      if(i >= k - 1){
+        res.add(deq.peekFirst().value);
+      }
     }
     return res;
   }

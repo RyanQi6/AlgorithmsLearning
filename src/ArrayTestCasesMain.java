@@ -1,19 +1,57 @@
 import java.util.*;
 public class ArrayTestCasesMain{
   public void print2DMatrix(int[][] m){
-    if(m == null || m.length == 0 || m[0].length == 0){
-      return;
+        if(m == null || m.length == 0 || m[0].length == 0){
+            return;
+        }
+        for(int i = 0; i < m.length; i++){
+            String s = "";
+            for(int j = 0; j < m[0].length; j++){
+                s += m[i][j];
+                s += ", ";
+            }
+            System.out.println(s);
+        }
     }
-    for(int i = 0; i < m.length; i++){
-      String s = "";
-      for(int j = 0; j < m[0].length; j++){
-        s += m[i][j];
-        s += ", ";
+    public void print2DMatrix(boolean[][] m){
+        if(m == null || m.length == 0 || m[0].length == 0){
+            return;
+        }
+        for(int i = 0; i < m.length; i++){
+            String s = "";
+            for(int j = 0; j < m[0].length; j++){
+                s += m[i][j];
+                s += ", ";
+            }
+            System.out.println(s);
+        }
+    }
+    public void print2DMatrix(char[][] m){
+        if(m == null || m.length == 0 || m[0].length == 0){
+            return;
+        }
+        for(int i = 0; i < m.length; i++){
+            String s = "";
+            for(int j = 0; j < m[0].length; j++){
+                s += m[i][j];
+                s += ", ";
+            }
+            System.out.println(s);
+        }
+    }
+    public void print2DMatrix(Object[][] m) {
+      if (m == null || m.length == 0 || m[0].length == 0) {
+          return;
       }
-      System.out.println(s);
-    }
+      for (int i = 0; i < m.length; i++) {
+          String s = "";
+          for (int j = 0; j < m[0].length; j++) {
+              s += m[i][j];
+              s += ", ";
+          }
+          System.out.println(s);
+      }
   }
-
   public void print1DArray(int[] array){
       String s = "";
       for(int i = 0; i < array.length; i++){
@@ -126,10 +164,16 @@ public class ArrayTestCasesMain{
 //      int[] a = {3,1,6,2,5,9,4};
 //      int t = 4;
 //      System.out.println(new FourSum().exist(a, 9));
-      //Test case for K way merge
-      int[][] a = new int[][]{{1,10},{2,4,8},{3},{6,7,9}};
-      int[] r = new MergeKSortedArray().merge(a);
-      new ArrayTestCasesMain().print1DArray(r);
+//      //Test case for K way merge
+//      int[][] a = new int[][]{{1,10},{2,4,8},{3},{6,7,9}};
+//      int[] r = new MergeKSortedArray().merge(a);
+//      new ArrayTestCasesMain().print1DArray(r);
+      //Test case for Maximum Values Of Size K Sliding Windows
+      int[] a = {5,2,1,4,3,6,2,8,3,1,4};
+      List<Integer> r = new MaxOfSlidingWind().maxWindows(a, 4);
+      for(Integer i: r){
+          System.out.println(i);
+      }
   }
 
 }
