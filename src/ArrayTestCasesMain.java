@@ -168,12 +168,27 @@ public class ArrayTestCasesMain{
 //      int[][] a = new int[][]{{1,10},{2,4,8},{3},{6,7,9}};
 //      int[] r = new MergeKSortedArray().merge(a);
 //      new ArrayTestCasesMain().print1DArray(r);
-      //Test case for Maximum Values Of Size K Sliding Windows
-      int[] a = {5,2,1,4,3,6,2,8,3,1,4};
-      List<Integer> r = new MaxOfSlidingWind().maxWindows(a, 4);
-      for(Integer i: r){
-          System.out.println(i);
-      }
+//      //Test case for Maximum Values Of Size K Sliding Windows
+//      int[] a = {5,2,1,4,3,6,2,8,3,1,4};
+//      List<Integer> r = new MaxOfSlidingWind().maxWindows(a, 4);
+//      for(Integer i: r){
+//          System.out.println(i);
+//      }
+      //Test case for Print all if blocks
+//      new PrintAllIfBlocks().printAll(3);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("{ ");
+//        sb.delete(sb.length() - 2, sb.length());
+//        System.out.println(sb.length());
+//      //Test case for Print all if blocks
+//      new PermutationOfBraceBracketParenthesis().printAll(1);
+      //Test case for spiral matrix III
+//      new SpiralMatrixIII().spiralMatrixIII(1,4,0,0);
+      //Test case for bipartition
+//      int[][] a = {{1,3},{2,3},{2,4}};
+//      boolean r = new PossibleBipartite().possibleBipartition(4, a);
+//      System.out.println(r);
+      int[][] t = {{1,2},{3,4}};
+      System.out.println();
   }
-
 }
