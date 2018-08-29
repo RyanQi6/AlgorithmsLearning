@@ -59,9 +59,9 @@ public class TreeNodeTestCasesMain {
 //        TreeNode newRoot = new SerialAndDeserial().deserialize(serial);
 //        System.out.println(TS.serialize(newRoot));
         //  Test case for deserial with post + in order
-        int[] in = {4, 8, 10, 12, 14, 20, 22};
-        int[] level = {20, 8, 22, 4, 12, 10, 14};
-        TreeNode root = new DeserializationTreeWithInLv().deserial(in, level);
+        int[] pre = {1, 2, 4, 5, 3, 6, 7};
+        int[] post = {4, 5, 2, 6, 7, 3, 1};
+        TreeNode root = new DeserializationTreeWithPostPre().constructFromPrePost(pre, post);
         String serial = new SerialAndDeserial().serialize(root);
         System.out.println(serial);
         TreeNode newRoot = new SerialAndDeserial().deserialize(serial);

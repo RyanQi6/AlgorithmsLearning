@@ -188,7 +188,8 @@ public class ArrayTestCasesMain{
 //      int[][] a = {{1,3},{2,3},{2,4}};
 //      boolean r = new PossibleBipartite().possibleBipartition(4, a);
 //      System.out.println(r);
-      int[][] t = {{1,2},{3,4}};
-      System.out.println();
+      //Test case for bipartition
+        int[] t = {1,1,3,3,1,2,2,4,4,5,6,7,8,9,10};
+        System.out.println(new MajorityII().majority(t, 6));
   }
 }
